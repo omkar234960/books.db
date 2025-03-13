@@ -1,15 +1,14 @@
-import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
+MYSQL_USER = "root"
+MYSQL_PASSWORD = "OMK@r2176"
+MYSQL_HOST = "localhost"
+MYSQL_PORT = "3306"
+MYSQL_DB = "books_db"
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATABASE_URL = f"mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}"
 
-if os.getenv("VERCEL") == "1":
-    DATABASE_URL = "sqlite:///:memory:"
-else:
-    DATABASE_URL = f"sqlite:///{os.path.join(BASE_DIR, 'books.db')}"
-
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
