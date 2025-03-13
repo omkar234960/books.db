@@ -2,3 +2,5 @@ fastapi
 uvicorn
 sqlite-utils
 python-multipart
+sqlalchemy
+
