@@ -6,6 +6,7 @@ from .crud import create_book, get_books, get_book, update_book, delete_book
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
+app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
@@ -18,7 +19,7 @@ app.add_middleware(
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI()
+
 
 def get_db():
     db = SessionLocal()
