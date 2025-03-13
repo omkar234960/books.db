@@ -4,6 +4,17 @@ from .database import SessionLocal, engine
 from .models import Base, Book
 from .crud import create_book, get_books, get_book, update_book, delete_book
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 Base.metadata.create_all(bind=engine)
 
