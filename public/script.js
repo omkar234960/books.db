@@ -1,4 +1,4 @@
-const API_URL = "/api/books/";
+const API_URL = "https://books-database.onrender.com";
 
 async function fetchBooks() {
     const response = await fetch(API_URL);
