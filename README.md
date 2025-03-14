@@ -7,3 +7,6 @@ A FastAPI-based Books Database project that allows users to:
 - Update book details
 - Delete books
 
+https://books-database.onrender.com/docs here you can view backend management of application
+
+
